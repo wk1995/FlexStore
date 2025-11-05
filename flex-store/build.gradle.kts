@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin.android)
+    alias(libs.plugins.ksp)
 }
 
 android {
@@ -33,7 +34,12 @@ android {
 }
 
 dependencies {
-
+    // KSP 核心库
+    implementation (libs.symbol.processing.api)
+    implementation(libs.room.runtime)
+    api(libs.room.paging)
+    api(libs.room.ktx)
+    ksp(libs.room.compiler)
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
